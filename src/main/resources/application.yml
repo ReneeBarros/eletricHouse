@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/EletricHouse
+    username: postgres
+    password: dasare@4R
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

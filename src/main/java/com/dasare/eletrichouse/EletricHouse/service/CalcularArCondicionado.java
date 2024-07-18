@@ -30,7 +30,7 @@ public class CalcularArCondicionado implements BtusAmbiente {
 
     public CalcularArCondicionado(
             ComunCalculate comunCal, Integer quantPessoasAmbiente,
-            Integer quantEletrodomestico, Integer btusTotal, Boolean insidenciaRaioSolar) {
+            Integer quantEletrodomestico, Boolean insidenciaRaioSolar) {
 
         this.comunCal = comunCal;
         this.quantPessoasAmbiente = quantPessoasAmbiente;
@@ -39,7 +39,6 @@ public class CalcularArCondicionado implements BtusAmbiente {
         this.btuAdicionalPorPessoa = BTUS_ADICIONAL_POR_PESSOA;
         this.btuAdicionalPorEletronico = BTUS_ADICIONAL_POR_ELETRONICO;
         this.btuAdicionalInsidenciaRaioSolar = BTUS_ADICIONAL_POR_INCIDENCIA_SOLAR;
-        this.btusTotal = btusTotal;
         this.insidenciaRaioSolar = insidenciaRaioSolar;
     }
     private void calcularBtus() {
@@ -59,4 +58,5 @@ public class CalcularArCondicionado implements BtusAmbiente {
         }
         this.btusTotal = (_btusTotal + _totalBtusPessoasAmbiente + _totalBtusEletronicosBtus + _btuInsidenciaderaioSolar);
     }
+
 }

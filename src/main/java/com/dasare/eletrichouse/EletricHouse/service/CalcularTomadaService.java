@@ -1,7 +1,8 @@
-package com.dasare.eletrichouse.EletricHouse.model;
+package com.dasare.eletrichouse.EletricHouse.service;
 
 
 import com.dasare.eletrichouse.EletricHouse.service.ComunCalculate;
+import org.springframework.stereotype.Service;
 
 /*
 CLASSE PARA CALCULAR TOMADA ELETRICA UTILIZANDO METODO DE AREA.
@@ -9,6 +10,7 @@ CLASSE PARA CALCULAR TOMADA ELETRICA UTILIZANDO METODO DE AREA.
 AUTO: RENEE B. BARROS
  */
 
+@Service
 public class CalcularTomadaService {
 
     private ComunCalculate comunCal;

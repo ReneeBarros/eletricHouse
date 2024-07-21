@@ -27,6 +27,9 @@ public class CalcularArCondicionado implements BtusAmbiente {
     private Integer btuAdicionalInsidenciaRaioSolar;
     private Integer btusTotal;
     private Boolean insidenciaRaioSolar;
+    private String  cuva;
+    private Double IDRS;
+    private Double potenciaEletria;
 
     public CalcularArCondicionado(
             ComunCalculate comunCal, Integer quantPessoasAmbiente,
@@ -40,6 +43,8 @@ public class CalcularArCondicionado implements BtusAmbiente {
         this.btuAdicionalPorEletronico = BTUS_ADICIONAL_POR_ELETRONICO;
         this.btuAdicionalInsidenciaRaioSolar = BTUS_ADICIONAL_POR_INCIDENCIA_SOLAR;
         this.insidenciaRaioSolar = insidenciaRaioSolar;
+        this.cuva = CuvaDisjuntores.CURVA_DISJUNTOR_TIPO_C.getCuva();
+        this.IDRS = 5.50;
     }
     private void calcularBtus() {
         Integer _btusTotal = (int) (comunCal.areaCalculate() * btuPorM2);
@@ -59,4 +64,10 @@ public class CalcularArCondicionado implements BtusAmbiente {
         this.btusTotal = (_btusTotal + _totalBtusPessoasAmbiente + _totalBtusEletronicosBtus + _btuInsidenciaderaioSolar);
     }
 
-}
+    private void calculoPotenciaEletrica(){
+        final Double k_constante = 0.293;
+        this.potenciaEletria = ((this.btusTotal * k_constante) / IDRS);
+    }
+
+
+ }

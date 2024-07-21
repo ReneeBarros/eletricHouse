@@ -16,6 +16,8 @@ public class CalculateLight{
     private Integer luminaireLumens;
     private Integer lumensTotal;
     private Integer totalLuminaria;
+     private Double potenciaLuminaria;
+     private Double potenciaTotal;
     public CalculateLight() {}
 
     public CalculateLight(ComunCalculate comunC, String ambience, Integer ambienceLumens, Integer luminaireLumens) {
@@ -73,28 +75,16 @@ public class CalculateLight{
         this.totalLuminaria = this.lumensTotal / luminaireLumens;
     }
 
-    public ComunCalculate getComunC() {
-        return comunC;
-    }
-
-    public void setComunC(ComunCalculate comunC) {
-        this.comunC = comunC;
+    private void calcularAmperagem(){
+        this.potenciaTotal = this.potenciaLuminaria * this.totalLuminaria;
     }
 
     public String getAmbience() {
         return ambience;
     }
 
-    public void setAmbience(String ambience) {
-        this.ambience = ambience;
-    }
-
     public Integer getAmbienceLumens() {
         return ambienceLumens;
-    }
-
-    public void setAmbienceLumens(Integer ambienceLumens) {
-        this.ambienceLumens = ambienceLumens;
     }
 
     public Integer getLuminaireLumens() {
@@ -112,6 +102,18 @@ public class CalculateLight{
 
     public Integer getTotalLuminaria() {
         return totalLuminaria;
+    }
+
+    public Double getPotenciaLuminaria() {
+        return potenciaLuminaria;
+    }
+
+    public void setPotenciaLuminaria(Double potenciaLuminaria) {
+        this.potenciaLuminaria = potenciaLuminaria;
+    }
+
+    public Double getPotenciaTotal() {
+        return potenciaTotal;
     }
 
     @Override

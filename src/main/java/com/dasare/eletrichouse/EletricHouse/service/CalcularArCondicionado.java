@@ -47,9 +47,9 @@ public class CalcularArCondicionado implements BtusAmbiente {
         this.IDRS = 5.50;
     }
     private void calcularBtus() {
-        Integer _btusTotal = (int) (comunCal.areaCalculate() * btuPorM2);
-        Integer _totalBtusPessoasAmbiente = 0;
-        Integer _totalBtusEletronicosBtus = 0;
+        int _btusTotal = (int) (comunCal.areaCalculate() * btuPorM2);
+        int _totalBtusPessoasAmbiente = 0;
+        int _totalBtusEletronicosBtus = 0;
         Integer _btuInsidenciaderaioSolar = 0;
 
         if(this.quantPessoasAmbiente > 1){

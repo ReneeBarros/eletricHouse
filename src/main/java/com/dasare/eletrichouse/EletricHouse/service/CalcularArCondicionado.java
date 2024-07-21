@@ -69,5 +69,89 @@ public class CalcularArCondicionado implements BtusAmbiente {
         this.potenciaEletria = ((this.btusTotal * k_constante) / IDRS);
     }
 
+    public ComunCalculate getComunCal() {
+        return comunCal;
+    }
 
- }
+    public void setComunCal(ComunCalculate comunCal) {
+        this.comunCal = comunCal;
+    }
+
+    public Integer getQuantPessoasAmbiente() {
+        return quantPessoasAmbiente;
+    }
+
+    public void setQuantPessoasAmbiente(Integer quantPessoasAmbiente) {
+        this.quantPessoasAmbiente = quantPessoasAmbiente;
+    }
+
+    public Integer getQuantEletrodomestico() {
+        return quantEletrodomestico;
+    }
+
+    public void setQuantEletrodomestico(Integer quantEletrodomestico) {
+        this.quantEletrodomestico = quantEletrodomestico;
+    }
+
+    public Integer getBtuPorM2() {
+        return btuPorM2;
+    }
+
+    public void setBtuPorM2(Integer btuPorM2) {
+        this.btuPorM2 = btuPorM2;
+    }
+
+    public Integer getBtuAdicionalPorPessoa() {
+        return btuAdicionalPorPessoa;
+    }
+
+    public void setBtuAdicionalPorPessoa(Integer btuAdicionalPorPessoa) {
+        this.btuAdicionalPorPessoa = btuAdicionalPorPessoa;
+    }
+
+    public Integer getBtuAdicionalPorEletronico() {
+        return btuAdicionalPorEletronico;
+    }
+
+    public void setBtuAdicionalPorEletronico(Integer btuAdicionalPorEletronico) {
+        this.btuAdicionalPorEletronico = btuAdicionalPorEletronico;
+    }
+
+    public Integer getBtuAdicionalInsidenciaRaioSolar() {
+        return btuAdicionalInsidenciaRaioSolar;
+    }
+
+    public void setBtuAdicionalInsidenciaRaioSolar(Integer btuAdicionalInsidenciaRaioSolar) {
+        this.btuAdicionalInsidenciaRaioSolar = btuAdicionalInsidenciaRaioSolar;
+    }
+
+    public Integer getBtusTotal() {
+        return btusTotal;
+    }
+
+    public Boolean getInsidenciaRaioSolar() {
+        return insidenciaRaioSolar;
+    }
+
+    public void setInsidenciaRaioSolar(Boolean insidenciaRaioSolar) {
+        this.insidenciaRaioSolar = insidenciaRaioSolar;
+    }
+
+    public String getCuva() {
+        return cuva;
+    }
+
+
+    public Double getIDRS() {
+        return IDRS;
+    }
+
+    public void setIDRS(Double IDRS) {
+        this.IDRS = IDRS;
+    }
+
+    public Double getPotenciaEletria() {
+        return potenciaEletria;
+    }
+
+}

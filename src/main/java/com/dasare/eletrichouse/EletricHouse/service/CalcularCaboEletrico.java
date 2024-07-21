@@ -142,8 +142,7 @@ public class CalcularCaboEletrico {
     }
 
     private void fatorDeAgrupamento(Map<Integer,Double>agrupamento, Integer fatorAgrupamento){
-        Double calcular = (agrupamento.get(fatorAgrupamento) * this.amperagemCircuito);
-        this.amperagemCircuito = calcular;
+        this.amperagemCircuito = agrupamento.get(fatorAgrupamento) * this.amperagemCircuito;
     }
 
     public Integer getTensaoCircuito() {

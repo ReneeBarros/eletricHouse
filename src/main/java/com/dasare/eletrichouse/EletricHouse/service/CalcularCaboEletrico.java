@@ -1,6 +1,5 @@
 package com.dasare.eletrichouse.EletricHouse.service;
 
-import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 import java.util.Map;
@@ -14,6 +13,7 @@ public class CalcularCaboEletrico {
     Integer quantidadeCondutorCarregado;
     Double caboEletrico;
     Double amperagemCaboEletrico;
+    private Integer fatorAgrupamento;
     String status;
 
     public CalcularCaboEletrico() {
@@ -31,10 +31,13 @@ public class CalcularCaboEletrico {
         // metodos de referencia indicado na tabela da norma 5410 para escolher o modelo de instalação dos cabos
         // Amperagem de cabos eletricos baseado nosso
 
-
         List<String> metodoReferncia = List.of("A1-2", "A1-3", "A2-2", "A2-3", "B1-2", "B1-3", "B2-2", "B2-3");
         List<Double> secoesNorminais = List.of(0.5, 0.75, 1.0, 1.5, 2.5, 4.0, 6.0, 10.0, 16.0, 25.0, 35.0, 50.0, 70.0);
+        Map<Integer,Double> fatoragrupamento = Map.of(
+                1,1.0,2,0.80,3,0.70,4,0.65,
+                5,0.60,6,0.57,7,0.54,8,0.52,11,0.50,15,0.45);
 
+        fatorDeAgrupamento(fatoragrupamento,fatorAgrupamento);
         String chave = buscadorDeChaveReferencia(metodoReferncia);
         var amperagemCabo = getStringListMap(chave);
         this.status = encontrarCabo(amperagemCabo, secoesNorminais);
@@ -75,24 +78,22 @@ public class CalcularCaboEletrico {
      */
     private String buscadorDeChaveReferencia(List<String> metodoReferncia) {
         String chaveReferenciaDeBusca = "";
-        switch (metodoInstalacao) {
-
-            case 1: {
+        return switch (metodoInstalacao) {
+            case 1 -> {
                 chaveReferenciaDeBusca = condutorCarregado(metodoReferncia, 0, 1);
-                return chaveReferenciaDeBusca;
+                yield chaveReferenciaDeBusca;
             }
-            case 2: {
+            case 2 -> {
                 chaveReferenciaDeBusca = condutorCarregado(metodoReferncia, 2, 3);
-                return chaveReferenciaDeBusca;
+                yield chaveReferenciaDeBusca;
             }
-            case 3, 5, 6, 7: {
+            case 3, 5, 6, 7 -> {
                 chaveReferenciaDeBusca = condutorCarregado(metodoReferncia, 4, 5);
-                return chaveReferenciaDeBusca;
+                yield chaveReferenciaDeBusca;
             }
-            case 4, 8: {
+            case 4, 8 -> {
                 chaveReferenciaDeBusca = condutorCarregado(metodoReferncia, 6, 7);
-                return chaveReferenciaDeBusca;
-            }
+                yield chaveReferenciaDeBusca;
 /*            case 5, 6, 7: {
                 chaveReferenciaDeBusca =condutorCarregado(metodoReferncia,4,5);
                 // essa utilizar o metodo B1-2 ou B1-3
@@ -104,27 +105,26 @@ public class CalcularCaboEletrico {
                 return chaveReferenciaDeBusca;
                 // essa utilizar o metodo B1-2 ou B1-3
             }*/
-        }
-        return chaveReferenciaDeBusca;
+            }
+            default -> chaveReferenciaDeBusca;
+        };
     }
 
     private String condutorCarregado(List<String> metodoDeReferencia, int location1, int location2) {
-        String chaveDeBusca = "";
-        chaveDeBusca = (this.quantidadeCondutorCarregado == 2) ? metodoDeReferencia.get(location1) : metodoDeReferencia.get(location2);
-        return chaveDeBusca;
+        return (this.quantidadeCondutorCarregado == 2) ? metodoDeReferencia.get(location1) : metodoDeReferencia.get(location2);
     }
 
     private String encontrarCabo(List<Double> amperagemNorma, List<Double> secoesNorminais) {
-        var lista1 = amperagemNorma;
         String retorno = "Sucesso";
 
-        for (Double e : lista1) {
+
+        for (Double e : amperagemNorma) {
             if (this.amperagemCircuito < e) {
-                this.caboEletrico = secoesNorminais.get(lista1.indexOf(e));
+                this.caboEletrico = secoesNorminais.get(amperagemNorma.indexOf(e));
                 this.amperagemCaboEletrico = e;
                 break;
             } else if (Objects.equals(this.amperagemCircuito, e)) {
-                this.caboEletrico = secoesNorminais.get(lista1.indexOf(e));
+                this.caboEletrico = secoesNorminais.get(amperagemNorma.indexOf(e));
                 this.amperagemCaboEletrico = e;
 
                 break;
@@ -133,12 +133,17 @@ public class CalcularCaboEletrico {
                     this.caboEletrico = secoesNorminais.get(lista1.indexOf(e));
                     break;
                 }*/
-            if (this.amperagemCircuito > lista1.get(lista1.size() - 1)) {
+            if (this.amperagemCircuito > amperagemNorma.get(amperagemNorma.size() - 1)) {
                 retorno = "Lamentamos, mas não temos uma bitola em nosso sistema para atender essa amperagem ";
                 this.amperagemCaboEletrico = 0.0;
             }
         }
         return retorno;
+    }
+
+    private void fatorDeAgrupamento(Map<Integer,Double>agrupamento, Integer fatorAgrupamento){
+        Double calcular = (agrupamento.get(fatorAgrupamento) * this.amperagemCircuito);
+        this.amperagemCircuito = calcular;
     }
 
     public Integer getTensaoCircuito() {

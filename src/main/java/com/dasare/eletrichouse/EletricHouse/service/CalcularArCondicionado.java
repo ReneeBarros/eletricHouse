@@ -18,7 +18,7 @@ CONSIDERAÇOES:
 @Service
 public class CalcularArCondicionado implements BtusAmbiente {
 
-    private ComunCalculate comunCal;
+    private CalculosComum comunCal;
     private Integer quantPessoasAmbiente;
     private Integer quantEletrodomestico;
     private Integer btuPorM2;
@@ -32,7 +32,7 @@ public class CalcularArCondicionado implements BtusAmbiente {
     private Double potenciaEletria;
 
     public CalcularArCondicionado(
-            ComunCalculate comunCal, Integer quantPessoasAmbiente,
+            CalculosComum comunCal, Integer quantPessoasAmbiente,
             Integer quantEletrodomestico, Boolean insidenciaRaioSolar) {
 
         this.comunCal = comunCal;
@@ -69,11 +69,11 @@ public class CalcularArCondicionado implements BtusAmbiente {
         this.potenciaEletria = ((this.btusTotal * k_constante) / IDRS);
     }
 
-    public ComunCalculate getComunCal() {
+    public CalculosComum getComunCal() {
         return comunCal;
     }
 
-    public void setComunCal(ComunCalculate comunCal) {
+    public void setComunCal(CalculosComum comunCal) {
         this.comunCal = comunCal;
     }
 

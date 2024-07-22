@@ -9,8 +9,8 @@ import java.util.Objects;
 */
 
 @Service
-public class CalculateLight{
-    private ComunCalculate comunC;
+public class CalcularIluminacao {
+    private CalculosComum comunC;
     private String ambience;
     private Integer ambienceLumens;
     private Integer luminaireLumens;
@@ -18,9 +18,9 @@ public class CalculateLight{
     private Integer totalLuminaria;
      private Double potenciaLuminaria;
      private Double potenciaTotal;
-    public CalculateLight() {}
+    public CalcularIluminacao() {}
 
-    public CalculateLight(ComunCalculate comunC, String ambience, Integer ambienceLumens, Integer luminaireLumens) {
+    public CalcularIluminacao(CalculosComum comunC, String ambience, Integer ambienceLumens, Integer luminaireLumens) {
         this.comunC = comunC;
         this.ambience = ambience;
         this.ambienceLumens = ambienceLumens;
@@ -119,7 +119,7 @@ public class CalculateLight{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof CalculateLight that)) return false;
+        if (!(o instanceof CalcularIluminacao that)) return false;
         return Objects.equals(getAmbience(), that.getAmbience()) && Objects.equals(getAmbienceLumens(), that.getAmbienceLumens());
     }
 

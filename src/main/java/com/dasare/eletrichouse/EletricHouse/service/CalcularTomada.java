@@ -1,7 +1,6 @@
 package com.dasare.eletrichouse.EletricHouse.service;
 
 
-import com.dasare.eletrichouse.EletricHouse.service.ComunCalculate;
 import org.springframework.stereotype.Service;
 
 /*
@@ -11,21 +10,21 @@ AUTO: RENEE B. BARROS
  */
 
 @Service
-public class CalcularTomadaService {
+public class CalcularTomada {
 
-    private ComunCalculate comunCal;
+    private CalculosComum comunCal;
     private String ambiente;
     private Integer potenciaTomada;
     private Integer potenciaTomada3unidIncial;
     private Integer quantToamda;
     private Integer potenciaTotal;
 
-    public CalcularTomadaService(ComunCalculate comunCal, String ambiente) {
+    public CalcularTomada(CalculosComum comunCal, String ambiente) {
         this.comunCal = comunCal;
         this.ambiente = ambiente;
     }
 
-    public CalcularTomadaService() {
+    public CalcularTomada() {
     }
 
     private void calcluarTomada() {

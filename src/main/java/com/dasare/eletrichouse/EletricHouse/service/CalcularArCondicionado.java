@@ -1,6 +1,5 @@
 package com.dasare.eletrichouse.EletricHouse.service;
 
-import org.springframework.stereotype.Service;
 
 /*
 CLASSE PARA CALCULAR BTUS POR AMBIENTE.
@@ -15,7 +14,6 @@ CONSIDERAÇOES:
 
  */
 
-@Service
 public class CalcularArCondicionado implements BtusAmbiente {
 
     private CalculosComum comunCal;
@@ -50,7 +48,7 @@ public class CalcularArCondicionado implements BtusAmbiente {
         int _btusTotal = (int) (comunCal.areaCalculate() * btuPorM2);
         int _totalBtusPessoasAmbiente = 0;
         int _totalBtusEletronicosBtus = 0;
-        Integer _btuInsidenciaderaioSolar = 0;
+        int _btuInsidenciaderaioSolar = 0;
 
         if(this.quantPessoasAmbiente > 1){
            _totalBtusPessoasAmbiente = this.btuAdicionalPorPessoa * (this.quantPessoasAmbiente - 1);

@@ -1,33 +1,28 @@
 package com.dasare.eletrichouse.EletricHouse.service;
 
-
-import org.springframework.stereotype.Service;
-
 /*
 CLASSE PARA CALCULAR TOMADA ELETRICA UTILIZANDO METODO DE AREA.
 
 AUTO: RENEE B. BARROS
  */
 
-@Service
-public class CalcularTomada {
+public class CalcularTomada extends CalculosComum {
 
-    private CalculosComum comunCal;
     private String ambiente;
     private Integer potenciaTomada;
     private Integer potenciaTomada3unidIncial;
     private Integer quantToamda;
     private Integer potenciaTotal;
 
-    public CalcularTomada(CalculosComum comunCal, String ambiente) {
-        this.comunCal = comunCal;
+    public CalcularTomada( String ambiente) {
         this.ambiente = ambiente;
+        calcluarTomada();
     }
 
     public CalcularTomada() {
     }
 
-    private void calcluarTomada() {
+    public void calcluarTomada() {
         final Integer POTENCIA_TOMADA = 100;
         final Integer POTENCIA_TOMADA_SUPERIOR_A_3_UNIDADE = 600;
         final Double PARAMETRO_DIVISAO_TOMADA_AMBIENTE_COMUM = 5.0;
@@ -75,7 +70,7 @@ public class CalcularTomada {
             Integer POTENCIA_TOMADA_SUPERIOR_A_3_UNIDADE, // 600w por tomada as 3 primeira
             Integer POTENCIA_TOMADA /// = 100w por tomada
     ) {
-        Integer calculoTomada = (int) (comunCal.perimeterCalculate() / parametroDivisivel);
+         int calculoTomada = (int) (perimeterCalculate()/ parametroDivisivel);
         this.quantToamda = calculoTomada;
         if (parametroDivisivel == 5) {
             this.potenciaTotal = calculoTomada * POTENCIA_TOMADA;
@@ -87,6 +82,7 @@ public class CalcularTomada {
                 var potenciaRestante = POTENCIA_TOMADA * (calculoTomada - 3);
                 this.potenciaTotal = (int) (potenciaSuperior3 + potenciaRestante);
                 this.potenciaTomada3unidIncial = POTENCIA_TOMADA_SUPERIOR_A_3_UNIDADE;
+                this.potenciaTomada = POTENCIA_TOMADA;
             } else {
                 this.potenciaTotal = calculoTomada * POTENCIA_TOMADA_SUPERIOR_A_3_UNIDADE;
                 this.potenciaTomada3unidIncial = POTENCIA_TOMADA_SUPERIOR_A_3_UNIDADE;
@@ -113,4 +109,6 @@ public class CalcularTomada {
     public Integer getPotenciaTotal() {
         return potenciaTotal;
     }
+
+
 }

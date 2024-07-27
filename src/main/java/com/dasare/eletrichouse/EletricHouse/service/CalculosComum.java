@@ -9,12 +9,14 @@ public class CalculosComum {
     private Integer tensao;
 
     public CalculosComum() {
-    }
+        }
 
     public CalculosComum(Double width, Double length, Integer tensao) {
         this.width = width;
         this.length = length;
         this.tensao = tensao;
+        areaCalculate();
+        this.perimeter=perimeterCalculate();
     }
 
     public Double areaCalculate(){

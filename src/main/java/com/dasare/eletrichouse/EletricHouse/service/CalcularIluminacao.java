@@ -1,14 +1,11 @@
 package com.dasare.eletrichouse.EletricHouse.service;
 
-import org.springframework.stereotype.Service;
-
 import java.util.Objects;
 
 /*
 *  CALCULO DE QUANTIDADE DE LUMINARIA PELO METODO DE AREA.
 */
 
-@Service
 public class CalcularIluminacao {
     private CalculosComum comunC;
     private String ambience;

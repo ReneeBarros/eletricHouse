@@ -1,6 +1,7 @@
 package com.dasare.eletrichouse.EletricHouse.entity;
 
-import com.dasare.eletrichouse.EletricHouse.service.CalculosComum;
+import com.dasare.eletrichouse.EletricHouse.model.calculo.CalculosComum;
+
 import jakarta.persistence.*;
 
 @Entity

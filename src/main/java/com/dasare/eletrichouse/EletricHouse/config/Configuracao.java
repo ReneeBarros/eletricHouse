@@ -1,14 +1,16 @@
 package com.dasare.eletrichouse.EletricHouse.config;
 
 
-import com.dasare.eletrichouse.EletricHouse.service.DAO.DaoCalcularToamda;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.dasare.eletrichouse.EletricHouse.service.dto.DtoCalcularToamda;
 
 @Configuration
 public class Configuracao {
 
-    public DaoCalcularToamda daoCalcularToamda(DaoCalcularToamda daoCalcularToamda){
-        return new DaoCalcularToamda();
+    public DtoCalcularToamda daoCalcularToamda(){
+        return new DtoCalcularToamda();
     }
 
 }

@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/EletricHouse
     username: postgres
-    password: dasare@4R
+    password: renee@4R
   jpa:
     hibernate:
       ddl-auto: update

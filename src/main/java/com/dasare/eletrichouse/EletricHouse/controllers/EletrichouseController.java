@@ -1,8 +1,9 @@
 package com.dasare.eletrichouse.EletricHouse.controllers;
 
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularTomadaEntity;
-import com.dasare.eletrichouse.EletricHouse.service.CalcularTomada;
+import com.dasare.eletrichouse.EletricHouse.model.calculo.CalcularTomada;
 import com.dasare.eletrichouse.EletricHouse.service.CalcularTomdaService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

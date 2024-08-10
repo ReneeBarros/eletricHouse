@@ -4,20 +4,21 @@ import com.dasare.eletrichouse.EletricHouse.data.repository.TomadaRepository;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularTomadaEntity;
 import com.dasare.eletrichouse.EletricHouse.model.calculo.CalcularTomada;
 import com.dasare.eletrichouse.EletricHouse.service.fabrica.FabricaEletricHouse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CalcularTomdaService {
 
-    private final TomadaRepository tomadaRepository;
+    @Autowired
+    private FabricaEletricHouse fab;
 
-    public CalcularTomdaService(TomadaRepository tomadaRepository) {
-        this.tomadaRepository = tomadaRepository;
+    @Autowired
+    private TomadaRepository tomadaRepository;
 
-    }
-     FabricaEletricHouse fabricaEletricHouse = new FabricaEletricHouse();
+
+
     public CalcularTomadaEntity calcularTomadaService(CalcularTomada calcularTomada){
-        CalcularTomadaEntity fab = fabricaEletricHouse.fabricaCalcularTomada(calcularTomada);
-        return tomadaRepository.save(fab);
+        return tomadaRepository.save(fab.fabricaCalcularTomada(calcularTomada));
     }
 }

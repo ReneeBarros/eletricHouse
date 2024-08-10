@@ -14,7 +14,7 @@ public class CalcularTomadaEntity extends CalculosComum {
     private String ambiente;
     private Integer potenciaTomada;
     private Integer potenciaTomada3unidIncial;
-    private Integer quantToamda;
+    private Integer quantTomada;
     private Integer potenciaTotal;
 
     public CalcularTomadaEntity() {
@@ -22,12 +22,12 @@ public class CalcularTomadaEntity extends CalculosComum {
 
     public CalcularTomadaEntity(String ambiente, Integer potenciaTomada,
                                 Integer potenciaTomada3unidIncial,
-                                Integer quantToamda, Integer potenciaTotal) {
+                                Integer quantTomada, Integer potenciaTotal) {
 
         this.ambiente = ambiente;
         this.potenciaTomada = potenciaTomada;
         this.potenciaTomada3unidIncial = potenciaTomada3unidIncial;
-        this.quantToamda = quantToamda;
+        this.quantTomada = quantTomada;
         this.potenciaTotal = potenciaTotal;
     }
 
@@ -57,11 +57,11 @@ public class CalcularTomadaEntity extends CalculosComum {
     }
 
     public Integer getQuantToamda() {
-        return quantToamda;
+        return quantTomada;
     }
 
     public void setQuantToamda(Integer quantToamda) {
-        this.quantToamda = quantToamda;
+        this.quantTomada = quantToamda;
     }
 
     public Integer getPotenciaTotal() {

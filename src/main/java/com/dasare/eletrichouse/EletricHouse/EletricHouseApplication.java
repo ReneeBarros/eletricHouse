@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "EletricHouse", version = "1.0", description = "calculo Eletrico"))
+@OpenAPIDefinition(info = @Info(title = "EletricHouse", version = "1.0", description = "Dimensionamento de Instalação Eletrica"))
 
 public class EletricHouseApplication {
 

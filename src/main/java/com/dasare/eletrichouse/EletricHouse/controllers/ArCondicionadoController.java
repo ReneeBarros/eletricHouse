@@ -3,7 +3,6 @@ package com.dasare.eletrichouse.EletricHouse.controllers;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularArCondicionadoEntity;
 import com.dasare.eletrichouse.EletricHouse.model.calculo.CalcularArCondicionado;
 import com.dasare.eletrichouse.EletricHouse.service.CalcularArCondicionadoService;
-import com.dasare.eletrichouse.EletricHouse.service.CalcularIluminacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

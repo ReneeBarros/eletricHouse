@@ -17,7 +17,6 @@ public class CalcularTomdaService {
     private TomadaRepository tomadaRepository;
 
 
-
     public CalcularTomadaEntity calcularTomadaService(CalcularTomada calcularTomada){
         return tomadaRepository.save(fab.fabricaCalcularTomada(calcularTomada));
     }

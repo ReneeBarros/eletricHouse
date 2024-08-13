@@ -1,10 +1,13 @@
 package com.dasare.eletrichouse.EletricHouse.service.fabrica;
 
 
+import com.dasare.eletrichouse.EletricHouse.entity.CalcularArCondicionadoEntity;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularIluminacaoEntity;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularTomadaEntity;
+import com.dasare.eletrichouse.EletricHouse.model.calculo.CalcularArCondicionado;
 import com.dasare.eletrichouse.EletricHouse.model.calculo.CalcularIluminacao;
 import com.dasare.eletrichouse.EletricHouse.model.calculo.CalcularTomada;
+import com.dasare.eletrichouse.EletricHouse.service.dto.DtoCalcularArCondicionado;
 import com.dasare.eletrichouse.EletricHouse.service.dto.DtoCalcularIluminacao;
 import com.dasare.eletrichouse.EletricHouse.service.dto.DtoCalcularToamda;
 
@@ -32,5 +35,16 @@ public class FabricaEletricHouse {
          return new DtoCalcularIluminacao().iluminacaoToIluminacaoEntity(iluminacao);
     }
 
+    public CalcularArCondicionadoEntity fabricarCalculoArcondicionado(CalcularArCondicionado calArcond){
+        CalcularArCondicionado arCondicionado = new CalcularArCondicionado(
+                calArcond.getLargura(),
+                calArcond.getComprimento(),
+                calArcond.getTensao(),
+                calArcond.getQuantPessoasAmbiente(),
+                calArcond.getQuantEletrodomestico(),
+                calArcond.getInsidenciaRaioSolar()
+        );
+       return new DtoCalcularArCondicionado().calcularArCondToCalcularArCondEntity(arCondicionado);
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.dasare.eletrichouse.EletricHouse.service;
 
 import com.dasare.eletrichouse.EletricHouse.data.repository.TomadaRepository;
+import com.dasare.eletrichouse.EletricHouse.data.request.ResquestTomadaDTO;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularTomadaEntity;
 import com.dasare.eletrichouse.EletricHouse.model.calculo.CalcularTomada;
 import com.dasare.eletrichouse.EletricHouse.service.fabrica.FabricaEletricHouse;
@@ -17,7 +18,12 @@ public class CalcularTomdaService {
     private TomadaRepository tomadaRepository;
 
 
-    public CalcularTomadaEntity calcularTomadaService(CalcularTomada calcularTomada){
+    public CalcularTomadaEntity calcularTomadaService(ResquestTomadaDTO calcularTomada){
+
         return tomadaRepository.save(fab.fabricaCalcularTomada(calcularTomada));
+    }
+
+    public CalcularTomadaEntity encontrarTomada(Long id){
+       return tomadaRepository.findById(id).get();
     }
 }

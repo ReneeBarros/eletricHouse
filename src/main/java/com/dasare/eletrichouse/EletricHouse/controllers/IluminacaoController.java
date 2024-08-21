@@ -1,8 +1,8 @@
 package com.dasare.eletrichouse.EletricHouse.controllers;
 
 
+import com.dasare.eletrichouse.EletricHouse.data.request.ResquestIlumDTO;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularIluminacaoEntity;
-import com.dasare.eletrichouse.EletricHouse.model.calculo.CalcularIluminacao;
 import com.dasare.eletrichouse.EletricHouse.service.CalcularIluminacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ public class IluminacaoController {
     private CalcularIluminacaoService service;
 
     @PostMapping("/calIlumTosave")
-    private ResponseEntity<CalcularIluminacaoEntity>calcularIluminacaoToSave(@RequestBody CalcularIluminacao calIluminacao){
+    private ResponseEntity<CalcularIluminacaoEntity>calcularIluminacaoToSave(@RequestBody ResquestIlumDTO calIluminacao){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(service.iluminacaoToSave(calIluminacao));
     }
 

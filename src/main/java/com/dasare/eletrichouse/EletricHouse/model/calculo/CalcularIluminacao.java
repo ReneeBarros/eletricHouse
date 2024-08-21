@@ -18,12 +18,15 @@ public class CalcularIluminacao extends CalculosComum {
 
     public CalcularIluminacao() {}
 
-    public CalcularIluminacao(Double largura, Double comprimento,int tensao,
-                              String ambiente, Integer lumensAmbiente,
-                              Integer lumensLuminaria, Double potenciaLuminaria) {
+    public CalcularIluminacao(Double largura,
+                              Double comprimento,
+                              Integer tensao,
+                              String ambiente,
+                              Integer lumensLuminaria,
+                              Double potenciaLuminaria
+    ) {
         super(largura,comprimento,tensao);
         this.ambiente = ambiente;
-        this.lumensAmbiente = lumensAmbiente;
         this.lumensLuminaria = lumensLuminaria;
         this.potenciaLuminaria = potenciaLuminaria;
 
@@ -33,7 +36,11 @@ public class CalcularIluminacao extends CalculosComum {
         calcularAmperagem();
     }
 
-    public CalcularIluminacao(Double area, String ambiente, Double potenciaLuminaria, Integer lumensLuminaria) {
+    public CalcularIluminacao(Double area,
+                              String ambiente,
+                              Double potenciaLuminaria,
+                              Integer lumensLuminaria
+    ) {
         super(area);
         this.ambiente = ambiente;
         this.potenciaLuminaria = potenciaLuminaria;

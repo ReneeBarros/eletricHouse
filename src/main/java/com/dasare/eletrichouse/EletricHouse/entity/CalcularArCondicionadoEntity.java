@@ -11,6 +11,8 @@ public class CalcularArCondicionadoEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String ambiente;
+    private String nomeAmbiente;
     private Integer quantPessoasAmbiente;
     private Integer quantEletrodomestico;
     private Integer btuPorM2;
@@ -24,12 +26,24 @@ public class CalcularArCondicionadoEntity {
     private Double  potenciaEletria;
     private Double  amperagemCircuitoAc;
 
-    public CalcularArCondicionadoEntity(Integer quantPessoasAmbiente, Integer quantEletrodomestico,
-                                        Integer btuPorM2, Integer btuAdicionalPorPessoa, Integer btuAdicionalPorEletronico,
-                                        Integer btuAdicionalInsidenciaRaioSolar, Integer btusTotal,
-                                        Boolean insidenciaRaioSolar, String cuva,
-                                        Double IDRS, Double potenciaEletria, Double amperagemCircuitoAc) {
-
+    public CalcularArCondicionadoEntity(
+            String ambiente,
+            String nomeAmbiente,
+            Integer quantPessoasAmbiente,
+            Integer quantEletrodomestico,
+            Integer btuPorM2,
+            Integer btuAdicionalPorPessoa,
+            Integer btuAdicionalPorEletronico,
+            Integer btuAdicionalInsidenciaRaioSolar,
+            Integer btusTotal,
+            Boolean insidenciaRaioSolar,
+            String cuva,
+            Double IDRS,
+            Double potenciaEletria,
+            Double amperagemCircuitoAc
+    ) {
+        this.ambiente = ambiente;
+        this.nomeAmbiente = nomeAmbiente;
         this.quantPessoasAmbiente = quantPessoasAmbiente;
         this.quantEletrodomestico = quantEletrodomestico;
         this.btuPorM2 = btuPorM2;

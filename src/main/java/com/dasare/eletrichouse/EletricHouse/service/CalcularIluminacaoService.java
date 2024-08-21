@@ -2,8 +2,8 @@ package com.dasare.eletrichouse.EletricHouse.service;
 
 
 import com.dasare.eletrichouse.EletricHouse.data.repository.IluminacaoRepository;
+import com.dasare.eletrichouse.EletricHouse.data.request.ResquestIlumDTO;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularIluminacaoEntity;
-import com.dasare.eletrichouse.EletricHouse.model.calculo.CalcularIluminacao;
 import com.dasare.eletrichouse.EletricHouse.service.fabrica.FabricaEletricHouse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class CalcularIluminacaoService {
     private IluminacaoRepository repository;
 
 
-    public CalcularIluminacaoEntity iluminacaoToSave(CalcularIluminacao calIluminacao){
-        return repository.save(fab.fabricarCalculoIluminacao(calIluminacao));
+    public CalcularIluminacaoEntity iluminacaoToSave(ResquestIlumDTO resquest){
+        return repository.save(fab.fabricarCalculoIluminacao(resquest));
     }
 }

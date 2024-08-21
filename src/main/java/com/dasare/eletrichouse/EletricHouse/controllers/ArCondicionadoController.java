@@ -1,5 +1,6 @@
 package com.dasare.eletrichouse.EletricHouse.controllers;
 
+import com.dasare.eletrichouse.EletricHouse.data.request.ResquestArCondDTO;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularArCondicionadoEntity;
 import com.dasare.eletrichouse.EletricHouse.model.calculo.CalcularArCondicionado;
 import com.dasare.eletrichouse.EletricHouse.service.CalcularArCondicionadoService;
@@ -16,7 +17,7 @@ public class ArCondicionadoController {
     private CalcularArCondicionadoService service;
 
     @PostMapping("/calArcondTosave")
-    public ResponseEntity<CalcularArCondicionadoEntity>calcularIluminacaoToSave(@RequestBody CalcularArCondicionado calArcond){
+    public ResponseEntity<CalcularArCondicionadoEntity>calcularIluminacaoToSave(@RequestBody ResquestArCondDTO calArcond){
          return ResponseEntity.status(HttpStatus.CREATED).body(service.CalarCondicToSave(calArcond));
     }
 }

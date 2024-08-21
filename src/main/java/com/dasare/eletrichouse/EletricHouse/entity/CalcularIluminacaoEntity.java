@@ -11,6 +11,7 @@ public class CalcularIluminacaoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String ambiente;
+    private String nomeAmbiente;
     private Integer lumensAmbiente;
     private Integer lumensLuminaria;
     private Integer lumensTotal;
@@ -22,10 +23,19 @@ public class CalcularIluminacaoEntity {
     public CalcularIluminacaoEntity() {
     }
 
-    public CalcularIluminacaoEntity(String ambiente, Integer lumensAmbiente, Integer lumensLuminaria,
-                                    Integer lumensTotal, Integer totalLuminaria, Double potenciaLuminaria,
-                                    Double potenciaTotal, Double amperagemCircuito) {
+    public CalcularIluminacaoEntity(String ambiente,
+                                    String nomeAmbiente,
+                                    Integer lumensAmbiente,
+                                    Integer lumensLuminaria,
+                                    Integer lumensTotal,
+                                    Integer totalLuminaria,
+                                    Double potenciaLuminaria,
+                                    Double potenciaTotal,
+                                    Double amperagemCircuito
+    ) {
+
         this.ambiente = ambiente;
+        this.nomeAmbiente = nomeAmbiente;
         this.lumensAmbiente = lumensAmbiente;
         this.lumensLuminaria = lumensLuminaria;
         this.lumensTotal = lumensTotal;

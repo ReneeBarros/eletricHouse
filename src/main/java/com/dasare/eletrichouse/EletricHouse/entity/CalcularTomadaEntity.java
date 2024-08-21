@@ -12,6 +12,7 @@ public class CalcularTomadaEntity extends CalculosComum {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     private String ambiente;
+    private String nomeAmbiente;
     private Integer potenciaTomada;
     private Integer potenciaTomada3unidIncial;
     private Integer quantTomada;
@@ -20,11 +21,15 @@ public class CalcularTomadaEntity extends CalculosComum {
     public CalcularTomadaEntity() {
     }
 
-    public CalcularTomadaEntity(String ambiente, Integer potenciaTomada,
+    public CalcularTomadaEntity(String ambiente,
+                                String nomeAmbiente,
+                                Integer potenciaTomada,
                                 Integer potenciaTomada3unidIncial,
-                                Integer quantTomada, Integer potenciaTotal) {
+                                Integer quantTomada,
+                                Integer potenciaTotal) {
 
         this.ambiente = ambiente;
+        this.nomeAmbiente = nomeAmbiente;
         this.potenciaTomada = potenciaTomada;
         this.potenciaTomada3unidIncial = potenciaTomada3unidIncial;
         this.quantTomada = quantTomada;

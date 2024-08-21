@@ -1,6 +1,9 @@
 package com.dasare.eletrichouse.EletricHouse.service.fabrica;
 
 
+import com.dasare.eletrichouse.EletricHouse.data.request.ResquestArCondDTO;
+import com.dasare.eletrichouse.EletricHouse.data.request.ResquestIlumDTO;
+import com.dasare.eletrichouse.EletricHouse.data.request.ResquestTomadaDTO;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularArCondicionadoEntity;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularIluminacaoEntity;
 import com.dasare.eletrichouse.EletricHouse.entity.CalcularTomadaEntity;
@@ -14,37 +17,42 @@ import com.dasare.eletrichouse.EletricHouse.service.dto.DtoCalcularToamda;
 
 public class FabricaEletricHouse {
 
-    public CalcularTomadaEntity fabricaCalcularTomada(CalcularTomada calTomada){
-        CalcularTomada tomada = new CalcularTomada(calTomada.getLargura(),
-                calTomada.getComprimento(),
-                calTomada.getTensao(),
-                calTomada.getAmbiente());
-        return new DtoCalcularToamda().calcularTomadaModelToCalcularTomadaEntity(tomada);
+    public CalcularTomadaEntity fabricaCalcularTomada(ResquestTomadaDTO calTomada){
+        CalcularTomada tomada = new CalcularTomada(
+                calTomada.largura(),
+                calTomada.comprimento(),
+                calTomada.tensao(),
+                calTomada.ambiente());
+        return new DtoCalcularToamda().calcularTomadaModelToCalcularTomadaEntity(calTomada.nomeAmbiente(),tomada);
     }
 
-    public CalcularIluminacaoEntity fabricarCalculoIluminacao(CalcularIluminacao calIluminacao){
+    public CalcularIluminacaoEntity fabricarCalculoIluminacao(ResquestIlumDTO calIluminacao){
         CalcularIluminacao iluminacao = new CalcularIluminacao(
-                calIluminacao.getLargura(),
-                calIluminacao.getComprimento(),
-                calIluminacao.getTensao(),
-                calIluminacao.getAmbiente(),
-                calIluminacao.getLumensAmbiente(),
-                calIluminacao.getLumensLuminaria(),
-                calIluminacao.getPotenciaLuminaria()
+                calIluminacao.largura(),
+                calIluminacao.comprimento(),
+                calIluminacao.tensao(),
+                calIluminacao.ambiente(),
+                calIluminacao.lumensLuminaria(),
+                calIluminacao.potenciaLuminaria()
         );
-         return new DtoCalcularIluminacao().iluminacaoToIluminacaoEntity(iluminacao);
+         return new DtoCalcularIluminacao().iluminacaoToIluminacaoEntity(calIluminacao.nomeAmbiente(), iluminacao);
     }
 
-    public CalcularArCondicionadoEntity fabricarCalculoArcondicionado(CalcularArCondicionado calArcond){
+    public CalcularArCondicionadoEntity fabricarCalculoArcondicionado(ResquestArCondDTO calArcond){
         CalcularArCondicionado arCondicionado = new CalcularArCondicionado(
-                calArcond.getLargura(),
-                calArcond.getComprimento(),
-                calArcond.getTensao(),
-                calArcond.getQuantPessoasAmbiente(),
-                calArcond.getQuantEletrodomestico(),
-                calArcond.getInsidenciaRaioSolar()
+                calArcond.largura(),
+                calArcond.comprimento(),
+                calArcond.tensao(),
+                calArcond.quantPessoasAmbiente(),
+                calArcond.quantEletrodomestico(),
+                calArcond.insidenciaRaioSolar()
         );
-       return new DtoCalcularArCondicionado().calcularArCondToCalcularArCondEntity(arCondicionado);
+       return new DtoCalcularArCondicionado().
+               calcularArCondToCalcularArCondEntity(
+                       calArcond.ambiente(),
+                       calArcond.nomeAmbiente(),
+                       arCondicionado
+               );
     }
 
 }
